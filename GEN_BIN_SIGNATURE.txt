@@ -1,0 +1,14 @@
+def hex_to_bin(hex_string):
+    return bytes.fromhex(hex_string)
+
+def txt_to_bin(input_file, output_file):
+    with open(input_file, 'r') as txt_file:
+        hex_data = txt_file.read().replace(' ', '').replace('\n', '')
+
+    binary_data = hex_to_bin(hex_data)
+
+    with open(output_file, 'wb') as bin_file:
+        bin_file.write(binary_data)
+
+# Example usage:
+txt_to_bin('SIGNATURE.txt', 'SIGNATURE.bin')
